@@ -1,0 +1,13 @@
+<div>
+  <input [(ngModel)]="newTodo" placeholder="Enter todo" />
+  <button (click)="addTodo()">Add</button>
+  <button (click)="clearAll()" [disabled]="todos.length == 0">Clear all</button>
+</div>
+
+<ul>
+  <li *ngFor="let todo of todos; let i = index">
+    <input type="checkbox" [(ngModel)]="todo.completed" />
+   <span [ngStyle]="{ color: todo.completed ? 'green' : 'black' }"> {{ todo.text }} </span>
+    <button (click)="removeTodo(i)">Remove</button>
+  </li>
+</ul>
